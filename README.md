@@ -13,7 +13,7 @@ Polimorfismo
 Classes Abstratas
 Associação entre classes
 
-Toda a interação é realizada por meio do terminal (console), utilizando menus para navegação.
+Toda a interação é realizada por meio do terminal , utilizando menus para navegação.
 
 Funcionalidades
 Cadastro de Animais
