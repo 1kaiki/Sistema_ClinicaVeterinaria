@@ -50,7 +50,7 @@ Além das informações específicas de cada categoria.
 
 Cadastro de Vendas
 
-Permite registrar uma venda associando um animal a um produto.
+Permite registrar uma venda associando um produto.
 
 Cada venda recebe um código único para identificação.
 
