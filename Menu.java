@@ -28,7 +28,7 @@ public class Menu {
             System.out.println("0 - Sair");
  
             int opcao = ler.nextInt();
-            ler.nextLine(); 
+            ler.nextLine();
  
             switch (opcao) {
  
@@ -72,7 +72,7 @@ public class Menu {
             System.out.println("0 - Voltar");
  
             int opcao = ler.nextInt();
-            ler.nextLine(); 
+            ler.nextLine();
  
             switch (opcao) {
  
@@ -111,7 +111,7 @@ public class Menu {
             System.out.println("0 - Voltar");
  
             int opcao = ler.nextInt();
-            ler.nextLine(); 
+            ler.nextLine();
  
             switch (opcao) {
  
@@ -150,7 +150,7 @@ public class Menu {
             System.out.println("0 - Voltar");
  
             int opcao = ler.nextInt();
-            ler.nextLine(); 
+            ler.nextLine();
  
             switch (opcao) {
  
@@ -189,7 +189,7 @@ public class Menu {
             System.out.println("0 - Voltar");
  
             int opcao = ler.nextInt();
-            ler.nextLine(); 
+            ler.nextLine();
  
             switch (opcao) {
  
@@ -224,7 +224,8 @@ public class Menu {
             return;
         }
  
-        System.out.println("\n1 - Cão");
+        System.out.println("\nQual animal você deseja cadastrar?");
+        System.out.println("1 - Cão");
         System.out.println("2 - Gato");
  
         int tipo = ler.nextInt();
@@ -271,10 +272,11 @@ public class Menu {
  
         }
  
+        System.out.println("Animal cadastrado com sucesso.");
+        System.out.println("Código: " + codigoAnimal);
+ 
         qtdAnimais++;
         codigoAnimal++;
- 
-        System.out.println("Animal cadastrado com sucesso.");
  
     }
  
@@ -287,9 +289,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do animal que deseja pesquisar:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         int i = 0;
  
@@ -319,6 +322,7 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do animal que deseja alterar:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
         ler.nextLine();
@@ -425,9 +429,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do animal que deseja excluir:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         int i = 0;
  
@@ -468,7 +473,8 @@ public class Menu {
             return;
         }
  
-        System.out.println("\n1 - Ração");
+        System.out.println("\nQual produto você deseja cadastrar?");
+        System.out.println("1 - Ração");
         System.out.println("2 - Brinquedo");
         System.out.println("3 - Medicamento");
  
@@ -545,9 +551,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do produto que deseja pesquisar:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         int i = 0;
  
@@ -577,6 +584,7 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do produto que deseja alterar:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
         ler.nextLine();
@@ -695,9 +703,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do produto que deseja excluir:");
         System.out.print("Código: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         int i = 0;
  
@@ -740,16 +749,31 @@ public class Menu {
  
         }
  
-        if (qtdAnimais == 0 || qtdProdutos == 0) {
+        if (qtdAnimais == 0 && qtdProdutos == 0) {
  
             System.out.println("Cadastre pelo menos um animal e um produto.");
             return;
  
         }
  
+        if (qtdAnimais == 0) {
+ 
+            System.out.println("Cadastre pelo menos um animal antes de registrar uma venda.");
+            return;
+ 
+        }
+ 
+        if (qtdProdutos == 0) {
+ 
+            System.out.println("Cadastre pelo menos um produto antes de registrar uma venda.");
+            return;
+ 
+        }
+ 
+        System.out.println("Digite o código do animal para a venda:");
         System.out.print("Código do animal: ");
         int codAnimal = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         Animal animal = null;
  
@@ -771,9 +795,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código do produto para a venda:");
         System.out.print("Código do produto: ");
         int codProduto = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         Produto produto = null;
  
@@ -828,9 +853,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código da venda que deseja pesquisar:");
         System.out.print("Código da venda: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         for (int i = 0; i < qtdVendas; i++) {
  
@@ -863,9 +889,10 @@ public class Menu {
  
         }
  
+        System.out.println("Digite o código da venda que deseja excluir:");
         System.out.print("Código da venda: ");
         int codigo = ler.nextInt();
-        ler.nextLine(); 
+        ler.nextLine();
  
         for (int i = 0; i < qtdVendas; i++) {
  
@@ -892,5 +919,5 @@ public class Menu {
         System.out.println("Venda não encontrada.");
  
     }
-}
  
+}
