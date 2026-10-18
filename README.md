@@ -1,176 +1,92 @@
-============ Sistema de Gerenciamento para Clínica Veterinária ================
+# Sistema Clínica Veterinária
 
-DESCRIÇÃO : 
+Sistema em Java, executado no console, para gestão de uma clínica veterinária: cadastro, consulta, atualização e remoção de animais, produtos e vendas.
 
-Este projeto foi desenvolvido em Java com o objetivo de simular um sistema simples de gerenciamento para uma clínica veterinária. O sistema permite o cadastro, consulta, alteração e exclusão de animais, produtos e vendas, auxiliando no controle básico das informações da clínica.
+> Projeto final da disciplina de Programação Orientada a Objetos (POO) do curso Técnico em Informática, Colégio SATC.
 
-O projeto foi desenvolvido utilizando os principais conceitos da Programação Orientada a Objetos (POO), como:
+## Funcionalidades
 
-Classes e Objetos
-Encapsulamento
-Herança
-Polimorfismo
-Classes Abstratas
-Associação entre classes
+Animais (cães e gatos)
+- Cadastro com código, nome, idade e raça
+- Busca, atualização e remoção por código
 
-Toda a interação é realizada por meio do terminal , utilizando menus para navegação.
+Produtos (rações, brinquedos e medicamentos)
+- Cadastro com código, nome e preço
+- Busca, atualização e remoção por código
 
-Funcionalidades
-Cadastro de Animais
-
-Permite cadastrar animais atendidos pela clínica, como:
-
-Cães
-Gatos
-
-Cada animal possui informações como:
-
-Código
-Nome
-Idade
-Raça
-
-Além das características específicas de cada espécie.
-
-Cadastro de Produtos
-
-Permite cadastrar produtos comercializados pela clínica, como:
-
-Ração
-Brinquedo
-Medicamento
-
-Cada produto possui:
-
-Código
-Nome
-Preço
-
-Além das informações específicas de cada categoria.
-
-Cadastro de Vendas
-
-Permite registrar uma venda associando um produto.
-
-Cada venda recebe um código único para identificação.
-
-Pesquisa
-
-Permite pesquisar:
-
-Animais
-Produtos
 Vendas
+- Registro de venda vinculada a um produto, com código único
+- Busca e remoção por código (para corrigir uma venda, ela é removida e registrada novamente)
 
-A pesquisa é realizada por meio do código de identificação.
+## Conceitos de POO aplicados
 
-Alteração
+| Conceito | Onde aparece |
+|---|---|
+| Classes abstratas | `Animal` e `Produto` definem a base comum |
+| Herança | `Cao` e `Gato` herdam de `Animal`; `Racao`, `Brinquedo` e `Medicamento` herdam de `Produto` |
+| Polimorfismo | Animais e produtos são tratados pela classe base nas listagens e buscas |
+| Encapsulamento | Atributos privados com acesso por getters e setters |
+| Associação | `Venda` está associada a um `Produto` |
 
-Permite alterar os dados de:
+## Diagrama de classes
 
-Animais
-Produtos
+```mermaid
+classDiagram
+    Animal <|-- Cao
+    Animal <|-- Gato
+    Produto <|-- Racao
+    Produto <|-- Brinquedo
+    Produto <|-- Medicamento
+    Venda --> Produto
+    class Animal {
+        <<abstract>>
+        -int codigo
+        -String nome
+        -int idade
+        -String raca
+    }
+    class Produto {
+        <<abstract>>
+        -int codigo
+        -String nome
+        -double preco
+    }
+    class Venda {
+        -int codigo
+        -Produto produto
+    }
+```
 
-Para as vendas, a alteração não foi implementada, sendo necessário excluir e cadastrar novamente.
+## Exemplo de uso
 
-Exclusão
+```
+===== CLÍNICA VETERINÁRIA =====
+1 - Animais
+2 - Produtos
+3 - Vendas
+0 - Sair
+Escolha uma opção:
+```
 
-Permite excluir:
+> Ajuste este bloco para ficar igual ao menu real do seu programa, ou substitua por um print do terminal.
 
-Animais
-Produtos
-Vendas
-Estrutura do Projeto
-ProjetoClinicaVeterinaria
-│
-├── Main.java
-├── Menu.java
-│
-├── Animal.java
-├── Cao.java
-├── Gato.java
-│
-├── Produto.java
-├── Racao.java
-├── Brinquedo.java
-├── Medicamento.java
-│
-└── Venda.java
-Hierarquia das Classes
-Animal
-├── Cao
-└── Gato
+## Tecnologias
 
-Produto
-├── Racao
-├── Brinquedo
-└── Medicamento
+- Java
+- Programação Orientada a Objetos
+- `Scanner` para entrada de dados no console
 
-Venda
-(associa Animal e Produto)
+## Como rodar
 
-Menu
-(controla o sistema)
+```bash
+git clone https://github.com/1kaiki/Sistema_ClinicaVeterinaria.git
+cd Sistema_ClinicaVeterinaria/src
+javac *.java
+java Main
+```
 
-Main
-(inicia o programa)
-Tecnologias Utilizadas
-Java
-Programação Orientada a Objetos (POO)
-Scanner
-Arrays
-Estruturas condicionais
-Estruturas de repetição
-Como Executar
-Abra o projeto em uma IDE Java, como Eclipse, IntelliJ IDEA ou NetBeans.
-Certifique-se de que todos os arquivos estejam no mesmo pacote.
-Compile o projeto.
-Execute o arquivo Main.java.
-Utilize os menus exibidos no console para acessar as funcionalidades do sistema.
-Organização das Classes
-Animal.java
+Ou abra a pasta no IntelliJ IDEA, Eclipse ou NetBeans e execute a classe `Main`.
 
-Classe base responsável pelas informações comuns dos animais.
+## Autor
 
-Cao.java
-
-Classe derivada de Animal, responsável pelas informações específicas dos cães.
-
-Gato.java
-
-Classe derivada de Animal, responsável pelas informações específicas dos gatos.
-
-Produto.java
-
-Classe base responsável pelas informações comuns dos produtos.
-
-Racao.java
-
-Classe derivada de Produto, representa produtos do tipo ração.
-
-Brinquedo.java
-
-Classe derivada de Produto, representa produtos do tipo brinquedo.
-
-Medicamento.java
-
-Classe derivada de Produto, representa produtos do tipo medicamento.
-
-Venda.java
-
-Classe responsável por representar uma venda, associando um animal a um produto.
-
-Menu.java
-
-Classe responsável por controlar toda a navegação do sistema, exibindo os menus e executando as operações de cadastro, pesquisa, alteração e exclusão.
-
-Main.java
-
-Classe responsável por iniciar a execução do sistema.
-
-Conceitos de Programação Orientada a Objetos Aplicados
-Encapsulamento por meio de atributos privados e métodos getters e setters.
-Herança para especialização das classes Animal e Produto.
-Polimorfismo utilizando referências das classes pai para manipular objetos das classes filhas.
-Associação entre as classes Venda, Animal e Produto.
-Organização modular do sistema utilizando múltiplas classes.
+Kaiki Mariano
